@@ -1,0 +1,86 @@
+﻿@model Bank.Models.Booking
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    SelectList list = ViewBag.HotelId;
+    SelectList list2 = ViewBag.RoomTypeId;
+
+    string HotelId = Convert.ToString(ViewBag.HotelId);
+    string RoomTypeId = Convert.ToString(ViewBag.RoomTypeId);
+}
+
+<h2> </h2>
+
+
+@using (Ajax.BeginForm("RoomSearch", new AjaxOptions { UpdateTargetId = "results" }))
+{
+    @Html.AntiForgeryToken();
+    <div class="form-horizontal">
+        <h4>Бронирование номера</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+       
+        <div class="form-group">
+            <div class="control-label col-md-2">
+                <label>Отель</label>
+            </div>
+            <div class="col-md-10">
+                @Html.DropDownList("HotelId", list, "", htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">
+                <label>Класс</label>
+            </div>
+            <div class="col-md-10">
+                @Html.DropDownList("RoomTypeId", list2, "", htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ArrivalDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ArrivalDate, new { htmlAttributes = new { @type = "date", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ArrivalDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ReturnDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ReturnDate, new { htmlAttributes = new { @type = "date", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ReturnDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NumOfPersons, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NumOfPersons, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NumOfPersons, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Поиск" class="btn btn-default" />
+            </div>
+        </div>        
+    </div>
+}
+<div id="results">
+    
+</div>
+<div>
+    @Html.ActionLink("Назад", "Index")
+</div>
+@Scripts.Render("~/scripts/jquery-3.3.1.min.js")
+@Scripts.Render("~/scripts/jquery.unobtrusive-ajax.min.js")
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+

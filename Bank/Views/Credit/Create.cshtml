@@ -1,0 +1,29 @@
+﻿@model Bank.Models.Credit
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    SelectList list = ViewBag.CardID;
+}
+
+
+<h2>Новый кредит</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Percent, "Процентная ставка")
+    <br />
+    @Html.Label("13%", new { @class = "col-md-2 control-label" })
+    <br /><br />
+    @Html.LabelFor(model => model.Purp, "Цель кредита")
+    <br />
+    @Html.EditorFor(model => model.Purp)
+    @Html.ValidationMessageFor(m => m.Purp);
+    <br /><br />
+    @Html.LabelFor(model => model.Summ, "Сумма кредита")
+    <br />
+    @Html.EditorFor(model => model.Summ)
+    @Html.ValidationMessageFor(m => m.Summ);
+    <br /><br />
+    <input type="submit" value="Добавить кредит" />
+    <p></p>
+}

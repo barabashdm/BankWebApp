@@ -1,0 +1,31 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Bank.Models.BankCard
+<h2>Удаление карты</h2>
+<dl>
+    <dt>Номер карты</dt>
+    <dd>
+        @Html.DisplayNameFor(model => model.CardNumber)
+    </dd>
+
+    <dt>Действует до</dt>
+    <dd>
+        @Html.DisplayNameFor(model => model.ValidUntil)
+    </dd>
+
+    <dt>Валюта</dt>
+    <dd>
+        @Html.DisplayNameFor(model => model.Currency)
+    </dd>
+
+    <dt>Баланс</dt>
+    <dd>
+        @Html.DisplayNameFor(model => model.Balance)
+    </dd>
+</dl>
+
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Удалить" />
+}

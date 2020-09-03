@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank of Cyrodiil</title>
+    <link href="~/Content/slick.css" rel="stylesheet" />
+    <link href="~/Content/slick-theme.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/Site - Copy.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    <script src="~/Content/slick.min.js"></script>
+
+    <style>
+        #comments {
+            display: none;
+        }
+
+        #main {
+            overflow: hidden;
+        }
+
+        body {
+            font-family: 'Times New Roman';
+            font-size: 14px;
+            line-height: 1.428571429;
+            color: #FFFFFF;
+            /*background-color: #0a0000;
+            background-image: url(/Content/Background.jpg);
+            background-size: cover;
+            background-position: center;*/
+            min-height: 100vh;
+        }
+
+
+        .navbar-inverse .navbar-nav > li > a {
+            color: white;
+            font-family: 'comic sans ms';
+            font-weight: bold;
+        }
+
+
+
+        .navbar-inverse {
+            background-color: #001a1a;
+            border-color: #0bd3d4;
+            border-bottom-width: thin;
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: 'comic sans ms';
+            font-size: 14px;
+        }
+
+            .navbar-inverse .navbar-brand {
+                color: #00cc00;
+                font-size: 30px;
+                font-family: 'comic sans ms';
+            }
+
+                .navbar-inverse .navbar-brand:hover {
+                    color: white;
+                    border-color: #0bd3d3;
+                }
+
+        .swiper-container {
+            width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            background: #00cc00;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+            height: 700px;
+        }
+
+        .center {
+            font-family: 'comic sans ms';
+        }
+
+
+        .body-content {
+            margin-top: 50px;
+            width: auto;
+            background-color: #001a1a;
+            /*background-image: url(/Content/Images/Menu.jpg);*/
+        }
+
+        .container body-content,
+        h4 {
+            font-family: 'comic sans ms';
+        }
+
+        .logo img {
+            max-height: 25px;
+        }
+
+        .end {
+            background-color: #001a1a;
+            border-color: #0bd3d4;
+            border-bottom-width: thin;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            bottom: 0;
+            max-width: 100vw;
+            width: 100vw;
+            border-color: #0bd3d4;
+            border-bottom-width: thin;
+            font-family: 'comic sans ms';
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/" class="logo"><img src="~/Content/BankLogo2.png" alt="Alternate Text" /></a></li>
+                    @*<li>   <a class="dropdown-item" @Html.ActionLink("Сочи", "Miami", "Home")</a></li>
+        <li>
+            <a class="dropdown-item" @Html.ActionLink("Москва", "Moscow", "Home")</a>
+        </li>
+        <li>   <a class="dropdown-item" @Html.ActionLink("Хабаровск", "Khv", "Home")</a></li>
+        <li>@Html.ActionLink("Забронировать номер", "Search", "Bookings")</li>*@
+                    <li>@Html.ActionLink("Мои карты", "Index", "BankCard")</li>
+                    <li>@Html.ActionLink("Переводы", "Index", "Transaction")</li>
+                    <li>@Html.ActionLink("Кредиты", "Index", "Credit")</li>
+                    <li>@Html.ActionLink("Транзакции", "Search", "Transaction")</li>
+                    <li>@Html.ActionLink("Банковская ячейка", "BankBoxView", "BankBox")</li>
+                    <li>@Html.ActionLink("О нас", "AboutUs", "Home")</li>
+                    <li>@Html.ActionLink("Отделения", "About", "Home")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+    <u>
+        <div class="container end">
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Сообщество Кривых Рук™ </p>
+            </footer>
+        </div>
+    </u>
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <script src="~/Content/main.js"></script>
+    <script src="~/Content/bootstrap.min.js"></script>
+</body>
+</html>

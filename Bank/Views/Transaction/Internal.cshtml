@@ -1,0 +1,45 @@
+﻿@model Bank.Models.Transaction
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/jquery.maskedinput.min.js"></script>
+    <script src="~/Scripts/jquery.maskMoney.js" type="text/javascript"></script>
+    <script>
+        $(function () {
+        });
+    </script>
+</head>
+
+
+<h2>Перевод между счетами</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.CardNumber, "Перевести с карты")
+    <br />
+    @Html.DropDownListFor(model => model.CardNumber, new SelectList(ViewBag.list), "Выберите карту")
+    @Html.ValidationMessageFor(m => m.CardNumber);
+    <br />
+    <br />
+    @Html.LabelFor(model => model.CardNumber2, "на карту")
+    <br />
+    @Html.DropDownListFor(model => model.CardNumber2, new SelectList(ViewBag.list), "Выберите карту")
+    @Html.ValidationMessageFor(m => m.CardNumber2);
+    <br />
+    <br />
+    @Html.LabelFor(model => model.Summ, "Сумма перевода")
+    <br />
+    @Html.EditorFor(model => model.Summ)
+    @Html.ValidationMessageFor(m => m.Summ);
+    <br />
+    <br />
+    <input type="submit" value="Перевести" />
+    <p></p>
+}
+
+
+
+

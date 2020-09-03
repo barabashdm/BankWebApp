@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Bank.Models.Room>
+<br />
+<h1>Номера в данном отеле</h1><br />
+
+<div class="roomdiv">
+    @foreach (var el in Model) {
+        <div class="roomitem">
+            <div><button type="button" data-toggle="modal" data-target="@string.Join("exampleModalCenter","#",el.RoomId)"><img src="@string.Join("-", "/Content/" +el.RoomId,"1.jpg")" alt="Alternate Text" /></button></div>
+            <div>Номер комнаты: @el.RoomNum</div>
+            <div>Стоимость за ночь: @el.Price</div>
+        </div>
+    }
+</div>
+
+@foreach (var el in Model) {
+    <div class="modal fade" id="@string.Join("exampleModalCenter", "", el.RoomId)" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">ЗАКРЫТЬ</button>
+                </div>
+                <div class="modal-body">
+                    <div class="slider">
+                        <div><img src="@string.Join("-", "/Content/" +el.RoomId,"1.jpg")" alt="Alternate Text" /></div>
+                        <div><img src="@string.Join("-", "/Content/" +el.RoomId,"2.jpg")" alt="Alternate Text" /></div>
+                        <div><img src="@string.Join("-", "/Content/" +el.RoomId,"3.jpg")" alt="Alternate Text" /></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<script>
+    //$('button[type="submit"]').on("mousedown", function () {
+    //    $(this).attr("name", "roomID")
+    //});
+    
+    $('button[data-toggle=modal]').click(function () {
+
+        $('.slider').not('.slick-initialized').slick({
+            dots: true,
+            arrows: true,
+            centerMode: true,
+            fade: true,
+            cssEase: 'linear'
+        });
+        $('.slick-next').trigger("click").trigger("click").trigger("click");
+        console.log("HE");
+        //$('.slick-prev').trigger("click");
+    });
+    $(document).ready(function () {
+ 
+    });
+</script>

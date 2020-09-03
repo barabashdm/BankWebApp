@@ -1,0 +1,76 @@
+﻿
+@model IEnumerable<Bank.Models.BankBox>
+
+@{
+    ViewBag.Title = "BankBoxView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<form action="/BankBox/Cameras" method="post">
+    <div class=" form-horizontal">
+        <h3>Мои банковские ячейки</h3>
+        <h2> </h2>
+
+        <script src="~/Scripts/jquery-3.3.1.js"></script>
+
+        <style>
+            .table {
+                background-color: #333;
+                overflow-y: scroll;
+                white-space: nowrap;
+                max-height: 100px;
+                height: 100px;
+            }
+
+                .table a {
+                    display: inline-block;
+                    color: white;
+                    text-align: center;
+                    padding: 14px;
+                    text-decoration: none;
+                    overflow-y: scroll;
+                }
+
+                    .table a:hover {
+                        background-color: #777;
+                        overflow-y: scroll;
+                    }
+        </style>
+        <p>
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.OverPayOrDebt)
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OverPayOrDebt)
+                    </td>
+                    <td><button type="submit" name="" value="@item.ApplicationUserId">Вывести чек на печать</button></td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</form>
+<script>
+    $('button[type="submit"]').on("mousedown", function () {
+        $(this).attr("name", "ApplicationUserId")
+    });
+    $(document).ready(function () {
+
+    });
+</script>
+
+<div id="results">
+
+</div>
+@Scripts.Render("~/scripts/jquery-3.3.1.min.js")
+@Scripts.Render("~/scripts/jquery.unobtrusive-ajax.min.js")
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

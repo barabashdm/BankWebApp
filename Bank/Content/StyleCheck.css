@@ -1,0 +1,22 @@
+﻿body {
+    font-size: 13px;
+    font-family: Verdana, Arial, Helvetica, Sans-Serif;
+    background-color: white;
+    padding-left: 40px;
+}
+.table th, .table td {
+    border-top: none !important;
+    border-left: none !important;
+}
+
+.fixed-table-container {
+    border: 0px;
+}
+
+.table th {
+    border-bottom: none !important;
+}
+
+.table:last-child {
+    border: none !important;
+} 

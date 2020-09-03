@@ -1,0 +1,106 @@
+﻿
+@model IEnumerable<Bank.Models.Transaction>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<form action="/Transaction/Check" method="post">
+    <div class=" form-horizontal">
+        <h3>Мои транзакции</h3>
+        <h2> </h2>
+
+        <script src="~/Scripts/jquery-3.3.1.js"></script>
+        <script src="~/Scripts/jquery.maskedinput.min.js"></script>
+        <script>
+            $(function () {
+                $("#CardNumber").mask("9999 9999 9999 9999");
+            });
+        </script>
+
+        <style>
+            .table {
+                background-color: #333;
+                overflow-y: scroll;
+                white-space: nowrap;
+                max-height: 100px;
+                height: 100px;
+            }
+
+                .table a {
+                    display: inline-block;
+                    color: white;
+                    text-align: center;
+                    padding: 14px;
+                    text-decoration: none;
+                    overflow-y: scroll;
+                }
+
+                    .table a:hover {
+                        background-color: #777;
+                        overflow-y: scroll;
+                    }
+        </style>
+        <p>
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.TransactionType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CardNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Summ)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Currency)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TransactionID)
+                </th>
+                <th>
+                    Кнопка вывода на печать
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TransactionType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CardNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Summ)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Currency)
+                </td>
+                <th>
+                    @Html.DisplayFor(modelItem => item.TransactionID)
+                </th>
+                <td><button type="submit" name="" value="@item.TransactionID">Вывести чек на печать</button></td>
+            </tr>
+            }
+
+        </table>
+    </div>
+</form>
+<script>
+    $('button[type="submit"]').on("mousedown", function () {
+        $(this).attr("name", "TransactionID")
+    });
+    $(document).ready(function () {
+
+    });
+</script>

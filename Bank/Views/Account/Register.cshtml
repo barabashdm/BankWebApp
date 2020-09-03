@@ -1,0 +1,105 @@
+﻿@model Bank.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Регистрация";
+}
+<style>
+    .btn-default{visibility: hidden}
+    .sendbtn{visibility: hidden}
+</style>
+
+
+<head>
+    <script>
+        function GetCode() {
+            if (document.getElementById("CardNumber").value != "") {
+                var minNumber = 1000;
+                var maxNumber = 9999;
+                var randomnumber = Math.floor(Math.random() * (maxNumber + 1) + minNumber);
+                document.getElementById("CheckCardCode").value = randomnumber;
+                document.getElementById("GetCodeBut").style.visibility = "hidden";
+                document.getElementById("BestCodeEver)))").style.visibility = "visible";
+            }
+        }
+    </script>
+    <script>
+        function CheckCode() {
+            if (document.getElementById("CheckCardCode").value != "") {
+                document.getElementById("SendBut").style.visibility = "visible";
+                document.getElementById("BestCodeEver)))").style.visibility = "hidden";
+            }
+        }
+    </script>
+
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/jquery.maskedinput.min.js"></script>
+    <script>
+        $(function () {
+            $("#CardNumber").mask("9999 9999 9999 9999");
+        });
+    </script>
+
+    <script>
+        function AddCard()
+        {
+        }
+    </script>
+</head>
+<h2></h2>
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h4>Регистрация</h4>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.CardNumber, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            <input type="text" id="CardNumber" size="20" class="col-md-2 test">
+            <input type="button" id="GetCodeBut" value="Получить код подтверждения" name="no" onclick="GetCode()" class="btn hmm">
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        @Html.Label("Код подтверждения", new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            <input type="text" id="CheckCardCode" size="20" class="col-md-2 test">
+            <input type="button" id="BestCodeEver)))" value="Отправить" name="no" onclick="CheckCode()" class="btn sendbtn">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" id="SendBut" class="btn btn-default" onclick="AddCard()" value="Регистрация">
+        </div>
+    </div>
+}
+<style>
+    .test{
+        text-align:left;
+    }
+</style>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

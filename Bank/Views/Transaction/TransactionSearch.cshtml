@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Bank.Models.Transaction>
+
+<form action="/Transaction/RedirectToTransaction" method="post">
+    <div class=" form-horizontal">
+        <div id="searchreuslts">
+            <input type="hidden" name="Dati" value="@ViewBag.Dates" />
+            <div class="form-group">
+                <div class="control-label col-md-2">
+                    <label>Выберите комнату</label>
+                </div>
+                <div class="col-md-offset-2 col-md-10">
+                    <table class="table table-roomsearch">
+                        <thead>
+                            <tr>
+                                <th scope="col">Изображение</th>
+                                <th scope="col">Название отеля</th>
+                                <th scope="col">Номер комнаты</th>
+                                <th scope="col">Стоимость</th>
+                                <th scope="col">Может забронируем?</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var el in Model)
+                            {
+                                <tr>
+                                    <td scope="row"><button type="button" data-toggle="modal" data-target="@string.Join("exampleModalCenter","#",el.RoomId)"><img src="@string.Join("-", "/Content/" +el.RoomId,"1.jpg")" alt="Alternate Text" /></button></td>
+                                    <td>@el.Hotel.Name</td>
+                                    <td>@el.RoomNum</td>
+                                    <td>@el.Price</td>
+                                    <td><button type="submit" name="" value="@el.RoomId">Бронь</button></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

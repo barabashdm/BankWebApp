@@ -1,0 +1,38 @@
+﻿@model Bank.Models.BankCard
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Новая карта</h2>
+
+@using (Html.BeginForm())
+{
+
+    @Html.LabelFor(model => model.Balance, "Balance")
+    <br />
+    @Html.EditorFor(model => model.Balance)
+    <br /><br />
+
+    @Html.LabelFor(model => model.CardNumber, "CardNumber")
+        <br />
+        @Html.EditorFor(model => model.CardNumber)
+        <br /><br />
+
+    @Html.LabelFor(model => model.Currency, "Currency")
+    <br />
+    @Html.EditorFor(model => model.Currency)
+    <br /><br />
+
+    @Html.LabelFor(model => model.ReceivingDate, "ReceivingDate")
+    <br />
+    @Html.EditorFor(model => model.ReceivingDate, new { htmlAttributes = new { @type = "date", @class = "form-control" } })
+    <br /><br />
+
+    @Html.LabelFor(model => model.ValidUntil, "ValidUntil")
+    <br />
+    @Html.EditorFor(model => model.ValidUntil, new { htmlAttributes = new { @type = "date", @class = "form-control" } })
+    <br /><br />
+
+    <input type="submit" value="Добавить" />
+}

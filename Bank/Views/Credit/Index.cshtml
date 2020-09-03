@@ -1,0 +1,53 @@
+﻿
+@model IEnumerable<Bank.Models.Credit>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h3>Мои кредиты</h3>
+<h2> </h2>
+
+<p>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Purp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IssueDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Percent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Summ)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LeftToPay)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Purp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IssueDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Percent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Summ)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LeftToPay)
+        </td>
+    </tr>
+    }
+</table>
+    <p style="text-align:center;font-family:fantasy;  font-size: 22px">@Html.ActionLink("Оформить новый кредит", "Create", "Credit")</p>

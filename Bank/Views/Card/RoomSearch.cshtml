@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Bank.Models.Room>
+
+<form action="/Bookings/RedirectToBooking" method="post">
+    <div class=" form-horizontal">
+        <div id="searchreuslts">
+            <input type="hidden" name="Dati" value="@ViewBag.Dates" />
+            <div class="form-group">
+                <div class="control-label col-md-2">
+                    <label>Выберите комнату</label>
+                </div>
+                <div class="col-md-offset-2 col-md-10">
+                    <table class="table table-roomsearch">
+                        <thead>
+                            <tr>
+                                <th scope="col">Изображение</th>
+                                <th scope="col">Название отеля</th>
+                                <th scope="col">Номер комнаты</th>
+                                <th scope="col">Стоимость</th>
+                                <th scope="col">Может забранируем?</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var el in Model)
+                            {
+                                <tr>
+                                    <td scope="row"><button type="button" data-toggle="modal" data-target="@string.Join("exampleModalCenter","#",el.RoomId)"><img src="@string.Join("-", "/Content/" +el.RoomId,"1.jpg")" alt="Alternate Text" /></button></td>
+                                    <td>@el.Hotel.Name</td>
+                                    <td>@el.RoomNum</td>
+                                    <td>@el.Price</td>
+                                    <td><button type="submit" name="" value="@el.RoomId">Бронь</button></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            @*<div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Далее" class="btn btn-default" />
+                    </div>
+                </div>*@
+        </div>
+    </div>
+</form>
+@foreach (var el in Model)
+{
+    <div class="modal fade" id="@string.Join("exampleModalCenter", "", el.RoomId)" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">ЗАКРЫТЬ</button>
+                </div>
+                <div class="modal-body">
+                    <div class="slider">
+                        <div><img src="@string.Join("-", "/Content/" +el.RoomId,"1.jpg")" alt="Alternate Text" /></div>
+                        <div><img src="@string.Join("-", "/Content/" +el.RoomId,"2.jpg")" alt="Alternate Text" /></div>
+                        <div><img src="@string.Join("-", "/Content/" +el.RoomId,"3.jpg")" alt="Alternate Text" /></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<script>
+    $('button[type="submit"]').on("mousedown", function () {
+        $(this).attr("name", "roomID")
+    });
+    $('button[data-toggle=modal]').click(function () {
+
+        $('.slider').not('.slick-initialized').slick({
+            dots: true,
+            arrows: true,
+            centerMode: true,
+            fade: true,
+            cssEase: 'linear'
+        });
+        $('.slick-next').trigger("click");
+        $('.slick-prev').trigger("click");
+    });
+    $(document).ready(function () {
+
+    });
+</script>

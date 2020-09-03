@@ -1,0 +1,27 @@
+﻿@model Bank.Models.EditModel
+@using Microsoft.Owin.Security
+@{
+    ViewBag.Title = "Управление внешними именами входа";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+
+    
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div>
+        @Html.ValidationSummary(true, "")
+        <div>
+            <p>Year: @Html.EditorFor(model => model.Firstname)</p>
+        </div>
+
+        <div>
+            <div>
+                <input type="submit" value="Сохранить" />
+            </div>
+        </div>
+    </div>
+}

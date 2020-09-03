@@ -1,0 +1,76 @@
+﻿@model Bank.Models.Transaction
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2> </h2>
+
+
+
+
+@Html.AntiForgeryToken()
+<div class="form-horizontal">
+    <h4>Выписка по карте</h4>
+    <hr />
+    @using (Html.BeginForm("All", "Transaction", FormMethod.Get))
+    {
+        @Html.LabelFor(model => model.CardNumber, "Карта")
+    <br />
+    @Html.DropDownListFor(model => model.CardNumber, new SelectList(ViewBag.list), "Выберите карту")
+    @Html.ValidationMessageFor(m => m.CardNumber);
+    <br />
+    @*@Html.LabelFor(model => model.TransactionType, "Тип транзакции")
+    <br />
+    @Html.DropDownListFor(model => model.TransactionType, new SelectList(Enum.GetValues(typeof(Bank.Models.OperationType))), "Выберите тип транзакции")
+    @Html.ValidationMessageFor(m => m.TransactionType)
+    <br />
+    <br />*@
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Выписка транзакций" class="btn btn-default" />
+        </div>
+    </div>
+    }
+
+    @*@using (Html.BeginForm("All", "Transaction", FormMethod.Get))
+        {
+        <div class="form-group">
+            <div class="control-label col-md-2">
+                <label>Карта</label>
+            </div>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.CardNumber, new SelectList(ViewBag.list), "Выберите карту")
+                @Html.ValidationMessageFor(m => m.CardNumber)
+            </div>
+            <div class="control-label col-md-2">
+                <label>Тип транзакции</label>
+            </div>
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.TransactionType, new SelectList(Enum.GetValues(typeof(Bank.Models.OperationType))), "Выберите тип транзакции")
+                    @Html.ValidationMessageFor(m => m.TransactionType)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Поиск" class="btn btn-default" />
+                </div>
+            </div>
+    }*@
+
+</div>
+
+<div id="results">
+
+</div>
+@Scripts.Render("~/scripts/jquery-3.3.1.min.js")
+@Scripts.Render("~/scripts/jquery.unobtrusive-ajax.min.js")
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+
+
+

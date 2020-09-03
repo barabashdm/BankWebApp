@@ -1,0 +1,59 @@
+﻿@model Bank.Models.Card
+
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2> </h2>
+
+
+@using (Html.BeginForm("Create", "Cards"))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.LabelFor(model => model.ApplicationUser, "ApplicationUser")
+    <br />
+    @Html.EditorFor(model => model.ApplicationUser)
+    <br /><br />
+
+    @Html.LabelFor(model => model.ApplicationUserId, "ApplicationUserId")
+    <br />
+    @Html.EditorFor(model => model.ApplicationUserId)
+    <br /><br />
+
+    @Html.LabelFor(model => model.Balance, "Balance")
+    <br />
+    @Html.EditorFor(model => model.Balance)
+    <br /><br />
+
+    @Html.LabelFor(model => model.CardId, "CardId")
+    <br />
+    @Html.EditorFor(model => model.CardId)
+    <br /><br />
+
+    @Html.LabelFor(model => model.CardNumber, "CardNumber")
+    <br />
+    @Html.EditorFor(model => model.CardNumber)
+    <br /><br />
+
+    @Html.LabelFor(model => model.Currency, "Currency")
+    <br />
+    @Html.EditorFor(model => model.Currency)
+    <br /><br />
+
+    @Html.LabelFor(model => model.ReceivingDate, "ReceivingDate")
+    <br />
+    @Html.EditorFor(model => model.ReceivingDate)
+    <br /><br />
+
+    @Html.LabelFor(model => model.ValidUntil, "ValidUntil")
+    <br />
+    @Html.EditorFor(model => model.ValidUntil)
+    <br /><br />
+
+    <input type="submit" value="Добавить" />
+}
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

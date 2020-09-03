@@ -1,0 +1,82 @@
+﻿@model Bank.Models.Booking
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2> </h2>
+
+<h3>Вы действительно хотите отменить бронь?</h3>
+<div>
+    <h4> </h4>
+    <hr />
+    @*<dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicationUser.Firstname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicationUser.Firstname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoomId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArrivalDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArrivalDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReturnDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReturnDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumOfPersons)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumOfPersons)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PriceFor1Day)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PriceFor1Day)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PriceFull)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PriceFull)
+        </dd>
+
+    </dl>*@
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Отменить" class="btn btn-default" />
+            
+        </div>
+        @Html.ActionLink("Вернуться назад", "Index")
+    }
+</div>

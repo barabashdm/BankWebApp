@@ -1,0 +1,96 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: rgba(0,0,0,0.6);
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.navbar-inverse {
+    background-color: rgba(190, 17, 236, 0.15);
+    border-color: #080808;
+}
+.logo img {
+    max-height: 30px;
+}
+.table-roomsearch img {
+    max-height: 100px;
+    object-fit: cover;
+    width: 200px;
+}
+.slider .slick-slide img {
+   
+}
+.modal.fade.in > div{
+    width: 80%;
+}
+.slick-arrow:before {
+    color: black!important;
+}
+.slick-prev {
+    left: -20px;
+}
+.slick-next {
+    right: -25px;
+}
+.slick-slide {
+    text-align: center;
+}
+.slick-slide img {
+    display: inline-block;
+}
+.dropdown-menu {
+    background-color: #963cad;
+    padding: 1rem;
+}
+    .dropdown-menu .dropdown-item {
+        width: 100%;
+        display: block;
+    }
+.homepage {
+    min-height: calc(100vh - 120px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10%;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+}
+#myVideo {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+}
+.roomitem {
+    width: 30%;
+    display:inline-block;
+    margin-bottom: 30px;
+}
+.roomitem img {
+    width: 100%;
+}

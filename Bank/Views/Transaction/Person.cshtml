@@ -1,0 +1,62 @@
+﻿@model Bank.Models.Transaction
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/jquery.maskedinput.min.js"></script>
+    <script src="~/Scripts/jquery.maskMoney.js" type="text/javascript"></script>
+    <script>
+        $(function () {
+            $("#RecipientAccount").mask("999999999999999999999");
+            $("#ITN").mask("999999999999");
+        });
+    </script>
+</head>
+
+<h2>Перевод частному лицу</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.CardNumber, "Карта")
+    <br />
+    @Html.DropDownListFor(model => model.CardNumber, new SelectList(ViewBag.list), "Выберите карту")
+    @Html.ValidationMessageFor(m => m.CardNumber);
+    <br />
+    <br />
+    @Html.LabelFor(model => model.RecipientAccount, "Номер счета получателя")
+    <br />
+    @Html.EditorFor(model => model.RecipientAccount)
+    @Html.ValidationMessageFor(m => m.RecipientAccount);
+    <br />
+    <br />
+    @Html.LabelFor(model => model.ITN, "ИНН получателя")
+    <br />
+    @Html.EditorFor(model => model.ITN)
+    @Html.ValidationMessageFor(m => m.ITN);
+    <br />
+    <br />
+    @Html.LabelFor(model => model.Surname, "Фамилия получателя")
+    <br />
+    @Html.EditorFor(model => model.Surname)
+    @Html.ValidationMessageFor(m => m.Surname);
+    <br /><br />
+    @Html.LabelFor(model => model.Name, "Имя получателя")
+    <br />
+    @Html.EditorFor(model => model.Name)
+    @Html.ValidationMessageFor(m => m.Name);
+    <br /><br />
+    @Html.LabelFor(model => model.Patronymic, "Отчество получателя")
+    <br />
+    @Html.EditorFor(model => model.Patronymic)
+    @Html.ValidationMessageFor(m => m.Patronymic);
+    <br /><br />
+    @Html.LabelFor(model => model.Summ, "Сумма перевода")
+    <br />
+    @Html.EditorFor(model => model.Summ)
+    @Html.ValidationMessageFor(m => m.Summ);
+    <br /><br />
+    <input type="submit" value="Перевести" />
+    <p></p>
+}
