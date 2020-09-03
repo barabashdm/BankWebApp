@@ -292,55 +292,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\ForPrint.js" />
-    <Content Include="Content\Images\1.jpg" />
     <Content Include="App_Data\DefaultConnection.mdf" />
     <Content Include="App_Data\DefaultConnection_log.ldf">
       <DependentUpon>DefaultConnection.mdf</DependentUpon>
     </Content>
-    <Content Include="Content\Images\14.jpg" />
-    <Content Include="Content\Images\15.jpg" />
-    <Content Include="Content\Images\17.jpg" />
-    <Content Include="Content\Images\18.jpg" />
-    <Content Include="Content\Images\19.jpg" />
-    <Content Include="Content\Images\20.jpg" />
-    <Content Include="Content\Images\21.jpg" />
-    <Content Include="Content\Images\23.jpg" />
-    <Content Include="Content\Images\3.jpg" />
-    <Content Include="Content\Images\30.jpg" />
-    <Content Include="Content\Images\31.jpg" />
-    <Content Include="Content\Images\34.jpg" />
-    <Content Include="Content\Images\35.jpg" />
-    <Content Include="Content\Images\36.jpg" />
-    <Content Include="Content\Images\40.jpg" />
-    <Content Include="Content\Images\41.jpg" />
-    <Content Include="Content\Images\42.jpg" />
-    <Content Include="Content\Images\43.jpg" />
-    <Content Include="Content\Images\44.jpg" />
-    <Content Include="Content\Images\45.jpg" />
-    <Content Include="Content\Images\46.jpg" />
-    <Content Include="Content\Images\50.jpg" />
-    <Content Include="Content\Images\52.jpg" />
-    <Content Include="Content\Images\53.jpg" />
-    <Content Include="Content\Images\54.jpg" />
-    <Content Include="Content\Images\60.jpg" />
-    <Content Include="Content\Images\61.jpg" />
-    <Content Include="Content\Images\62.jpg" />
-    <Content Include="Content\Images\63.jpg" />
-    <Content Include="Content\Images\64.jpg" />
-    <Content Include="Content\Images\65.jpg" />
-    <Content Include="Content\Images\66.jpg" />
-    <Content Include="Content\Images\70.jpg" />
-    <Content Include="Content\Images\71.jpg" />
-    <Content Include="Content\Images\72.jpg" />
-    <Content Include="Content\Images\73.jpg" />
-    <Content Include="Content\Images\74.jpg" />
-    <Content Include="Content\Images\75.jpg" />
-    <Content Include="Content\Images\76.jpg" />
-    <Content Include="Content\Images\80.jpg" />
-    <Content Include="Content\Images\81.jpg" />
-    <Content Include="Content\Images\82.jpg" />
-    <Content Include="Content\Images\83.jpg" />
-    <Content Include="Content\Images\86.jpg" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
